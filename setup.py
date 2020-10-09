@@ -29,9 +29,9 @@ description = "Python client library for Zoom.us REST API v1 and v2"
 long_description = read("README.md", default=description)
 
 setup(
-    name="zoomus",
-    version=find_version(["zoomus", "__init__.py"]),
-    url="https://github.com/prschmid/zoomus",
+    name="zoom-us",
+    version=find_version(["zoom-us", "__init__.py"]),
+    url="https://github.com/chirag200666/zoomus",
     license="Apache Software License",
     author="Zoomus Contributors",
     install_requires=["requests", "PyJWT"],
@@ -39,7 +39,7 @@ setup(
     description=description,
     long_description=long_description,
     long_description_content_type="text/markdown",
-    packages=["zoomus", "zoomus.components"],
+    packages=["zoom-us", "zoom-us.components"],
     include_package_data=True,
     platforms="any",
     zip_safe=False,
