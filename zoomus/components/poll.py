@@ -31,8 +31,8 @@ class PollComponentV2(base.BaseComponent):
         util.require_keys(kwargs, "id")
         util.require_keys(kwargs, "poll_id")
         return self.get_request(
-            "/{}/{kwargs.get('id')}/polls/{}".format(
-                self.type, kwargs.get('poll_id')
+            "/{}/{}/polls/{}".format(
+                self.type, kwargs.get('id'), kwargs.get('poll_id')
             )
         )
 
@@ -40,9 +40,9 @@ class PollComponentV2(base.BaseComponent):
         util.require_keys(kwargs, "id")
         util.require_keys(kwargs, "poll_id")
         util.require_keys(kwargs, "data")
-        return self.patch_request(
-            "/{}/{kwargs.get('id')}/polls/{}".format(
-                self.type, kwargs.get('poll_id')
+        return self.put_request(
+            "/{}/{}/polls/{}".format(
+                self.type, kwargs.get('id'), kwargs.get('poll_id')
             ),
             data=kwargs.get('data')
         )
@@ -51,8 +51,8 @@ class PollComponentV2(base.BaseComponent):
         util.require_keys(kwargs, "id")
         util.require_keys(kwargs, "poll_id")
         return self.delete_request(
-            "/{}/{kwargs.get('id')}/polls/{}".format(
-                self.type, kwargs.get('poll_id')
+            "/{}/{}/polls/{}".format(
+                self.type, kwargs.get('id'), kwargs.get('poll_id')
             )
         )
 
