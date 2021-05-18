@@ -29,3 +29,11 @@ class PastMeetingComponentV2(base.BaseComponent):
             "/past_meetings/{}/participants".format(kwargs.get("meeting_id")),
             params=kwargs,
         )
+
+    def get_polls(self, **kwargs):
+        util.require_keys(kwargs, "meeting_id")
+        kwargs["meeting_id"] = util.encode_uuid(kwargs.get("meeting_id"))
+        return self.get_request(
+            "/past_meetings/{}/polls".format(kwargs.get("meeting_id"))
+        )
+

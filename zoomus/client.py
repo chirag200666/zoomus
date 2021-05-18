@@ -26,6 +26,7 @@ COMPONENT_CLASSES = {
         "past_meeting": components.past_meeting.PastMeetingComponentV2,
         "report": components.report.ReportComponentV2,
         "webinar": components.webinar.WebinarComponentV2,
+        "past_webinar": components.past_webinar.PastWebinarComponentV2,
         "recording": components.recording.RecordingComponentV2,
         "phone": components.phone.PhoneComponentV2,
         "webinar_poll": components.poll.WebinarPollComponentV2,
@@ -111,6 +112,11 @@ class ZoomClient(util.ApiClient):
         return self.components.get("meeting")
 
     @property
+    def past_meeting(self):
+        """Get the past meeting component"""
+        return self.components.get("past_meeting")
+
+    @property
     def metric(self):
         """Get the metric component"""
         return self.components.get("metric")
@@ -129,6 +135,11 @@ class ZoomClient(util.ApiClient):
     def webinar(self):
         """Get the webinar component"""
         return self.components.get("webinar")
+
+    @property
+    def past_webinar(self):
+        """Get the past webinar component"""
+        return self.components.get("past_webinar")
 
     @property
     def recording(self):
