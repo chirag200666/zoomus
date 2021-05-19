@@ -1,3 +1,4 @@
+from datetime import datetime
 import unittest
 
 from zoomus import components, util
@@ -13,7 +14,7 @@ def suite():
 
 class DeleteV2TestCase(unittest.TestCase):
     def setUp(self):
-        self.component = components.webinar.WebinarComponentV2(
+        self.component = components.poll.WebinarPollComponentV2(
             base_uri="http://foo.com",
             config={
                 "api_key": "KEY",
@@ -23,17 +24,9 @@ class DeleteV2TestCase(unittest.TestCase):
         )
 
     @responses.activate
-    def test_can_delete_panelists(self):
-        responses.add(
-            responses.DELETE,
-            "http://foo.com/webinars/ID/panelists",
-        )
-        response = self.component.remove_panelists(id="ID")
-        self.assertEqual(response.request.body, None)
-
-    def test_requires_id(self):
-        with self.assertRaisesRegexp(ValueError, "'id' must be set"):
-            self.component.remove_panelists()
+    def test_can_list(self):
+        responses.add(responses.DELETE, "http://foo.com/webinars/ID/polls/POLLID")
+        self.component.delete(id="ID", poll_id="POLLID")
 
 
 if __name__ == "__main__":
